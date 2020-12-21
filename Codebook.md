@@ -1,9 +1,23 @@
-Other sample code book.
+Based on.
 
-This sample is based on the PROPPR study of blood component ratios in transfusions in trauma patients. Warning: this is complicated.
+Experimental design and background: 
 
-Experimental design and background: Blood is given to trauma patients as blood components: red blood cells, plasma and platelets. This experiment was aimed at seeing if increasing the ratio of red blood cells over that in normal whole blood would lower mortality. There were two treatment groups, normal and increased red cells. Patients were screened at 12 participating hospitals. Randomization was done by per mutated random blocks, stratified by site.
+  This project assembles data from subjects whose activities were recorded with a smartphone device.  Measurements based on the smartphone devices were assigned to different         features. 
 
-Raw data: randomization assignment, date and time of admission to the hospital, type of injury, fluids given by EMT/paramedic before admission, hospital, time of blood product administration, lot number of blood product, time of hemostasis achieved, other fluids, pre-existing blood clotting diseases, pre-existing blood clotting inhibitors, date and time of discharge from ICU, date and time of ventilator start and stop, date and time of discharge from hospital and date and time of death (if death occurred within 30 days).
+  Per the assignment's readme.txt: "Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung     Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz."
 
-Processed data: Assignment was converted to treatment group (factor variable), type of injury was coded as a factor penetrating (1) or blunt (0), hospital was coded as a factor (1-12), EMT fluids were binned in 500ml bins, pre-existing clotting diseases were coded as a factor (each assigned a number), pre-existing clotting medications were coded as a factor. Other fluids were binned in 1L bins. Date of discharge from ICU was converted to ICU-free days (out of 30), Ventilator times were converted to ventilator-free days (out of 30), date of discharge was converted to hospital-free days (out of 30). Amount of blood products was summed in two groups, amount given until hemostasis and amount given from hemostasis until 24 hours, these were considered as numeric amounts, these were calculated from summing the blood product lot numbers, sorted by time of administration. Date of death was converted to 24-hour mortality (factor: yes=1 no=0) and 30-day mortality (factor: yes=1, no=0).
+Raw data: 
+  
+  The original (once compiled) dataset arrived in several files.  There were training and test versions of Subject, Y, and X, which contained the ID of the subject, the activity being measured, and the associated feature variables.  Features.txt and Activity_labels.txt contained feature descriptions and activity descriptions associated with the indexed columns. 
+
+Data assembly:
+
+  I assembled the data into a full dataset by column-binding SUBJECT | Y [activity] | X [features] for both training and test, and then row-binding training and test to result in a full dataset.
+
+Processed data: 
+
+  I subset the data to features containing either "mean()" or "std()", variables pertaining to the mean or standard deviation.  Joining to the activity labels, I derived descriptions for the activity code in the dataset.  I renamed the feature columns based on the relevant measurement features.  
+
+Calculations: 
+
+  Finally, I summarized the datset by subject and by activity, computing mean values for each column in a final, tidy dataset.
