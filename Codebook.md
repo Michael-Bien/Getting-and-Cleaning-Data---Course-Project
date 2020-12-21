@@ -1,5 +1,3 @@
-Based on.
-
 Experimental design and background: 
 
   This project assembles data from subjects whose activities were recorded with a smartphone device.  Measurements based on the smartphone devices were assigned to different         features. 
@@ -21,3 +19,35 @@ Processed data:
 Calculations: 
 
   Finally, I summarized the datset by subject and by activity, computing mean values for each column in a final, tidy dataset.
+  
+Relevant field descriptions:
+Subject - 
+Index variable unique to the subject being recorded.  Anonymous identifier.
+
+Activity - One of 6 activities: 
+1 WALKING
+2 WALKING_UPSTAIRS
+3 WALKING_DOWNSTAIRS
+4 SITTING
+5 STANDING
+6 LAYING
+
+Features - 
+contains readings from different calculations from the Samsung accelerometer.  Subset to mean() or sd() for the following fields: 
+    tBodyAcc-XYZ
+    tGravityAcc-XYZ
+    tBodyAccJerk-XYZ
+    tBodyGyro-XYZ
+    tBodyGyroJerk-XYZ
+    tBodyAccMag
+    tGravityAccMag
+    tBodyAccJerkMag
+    tBodyGyroMag
+    tBodyGyroJerkMag
+    fBodyAcc-XYZ
+    fBodyAccJerk-XYZ
+    fBodyGyro-XYZ
+    fBodyAccMag
+    fBodyAccJerkMag
+    fBodyGyroMag
+    fBodyGyroJerkMag
